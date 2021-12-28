@@ -18,14 +18,16 @@
 /* /Fonts */
 /* Global */
 html {
-  margin: 0 !important; }
+  margin: 0 !important;
+  overflow-x: hidden; }
 
 body {
   position: relative;
   margin: 0;
   padding: 0;
   font-family: 'opensans-regular';
-  font-size: 18px; }
+  font-size: 18px;
+  overflow-x: hidden; }
 
 a {
   text-decoration: none; }
@@ -1540,7 +1542,8 @@ section.blog .boxes {
 /* ---------------------- Section products-menu ---------------------- */
 section.products-menu {
   background: #653c99;
-  padding: 15px 0; }
+  padding: 15px 0;
+  overflow: visible; }
   section.products-menu ul {
     display: flex;
     justify-content: center;
@@ -1557,6 +1560,78 @@ section.products-menu {
           color: #ffcf01; }
       section.products-menu ul li.selected a {
         color: #ffcf01; }
+  section.products-menu .shop-menu ul.main-menu {
+    display: flex;
+    justify-content: center;
+    height: 100%; }
+    @media only screen and (min-width: 920px) {
+      section.products-menu .shop-menu ul.main-menu .menu-item-has-children, section.products-menu .shop-menu ul.main-menu .has-extra-menu {
+        padding-left: 20px;
+        background: url("../images/icons/rd.png") no-repeat left 10px center; } }
+    section.products-menu .shop-menu ul.main-menu .menu-item-has-children {
+      position: relative; }
+    section.products-menu .shop-menu ul.main-menu > li {
+      position: relative;
+      padding: 0 8px;
+      height: 100%;
+      margin: 0; }
+      section.products-menu .shop-menu ul.main-menu > li > a {
+        position: relative;
+        transition: 0.5s;
+        font-family: 'opensans-regular';
+        font-size: 20px;
+        color: #fff;
+        padding: 5px 10px;
+        white-space: nowrap;
+        display: inline-block;
+        height: 100%;
+        line-height: 43px; }
+        section.products-menu .shop-menu ul.main-menu > li > a:hover {
+          color: #ffcf01 !important; }
+      section.products-menu .shop-menu ul.main-menu > li.current_page_item > a, section.products-menu .shop-menu ul.main-menu > li.current-menu-item > a {
+        font-family: 'opensans-bold';
+        color: #ffcf01; }
+      section.products-menu .shop-menu ul.main-menu > li .sub-menu {
+        padding: 20px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100%;
+        background-color: #fff;
+        border-top: 4px solid #ffcf01;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.15s;
+        box-shadow: 0px 2px 15px 0px rgba(50, 50, 50, 0.2);
+        z-index: 99; }
+        @media only screen and (max-width: 920px) {
+          section.products-menu .shop-menu ul.main-menu > li .sub-menu {
+            display: none !important; } }
+        section.products-menu .shop-menu ul.main-menu > li .sub-menu li {
+          margin: 0; }
+          section.products-menu .shop-menu ul.main-menu > li .sub-menu li.menu-item-has-children {
+            background: url("../images/icons/rl.png") no-repeat left center; }
+          section.products-menu .shop-menu ul.main-menu > li .sub-menu li a {
+            font-family: 'opensans-regular';
+            font-size: 17px;
+            color: #262626;
+            padding: 8px;
+            white-space: nowrap;
+            display: inline-block;
+            transition: 0.5s; }
+            section.products-menu .shop-menu ul.main-menu > li .sub-menu li a:hover {
+              color: #ffcf01; }
+          section.products-menu .shop-menu ul.main-menu > li .sub-menu li .sub-menu {
+            left: auto;
+            right: 100%;
+            top: 0;
+            transform: translateX(-20px); }
+          section.products-menu .shop-menu ul.main-menu > li .sub-menu li:hover > .sub-menu {
+            visibility: visible;
+            opacity: 1; }
+      section.products-menu .shop-menu ul.main-menu > li:hover > .sub-menu {
+        visibility: visible;
+        opacity: 1; }
 
 /* --------------------- /Section products-menu ---------------------- */
 /* ---------------------- Section our-store ---------------------- */
@@ -3069,6 +3144,121 @@ section.blog-new .boxes {
       margin-top: 20px; } }
 
 /* --------------------- /Section blog ---------------------- */
+/* ---------------------- Section categories ---------------------- */
+section.categories {
+  background: #fff;
+  padding: 95px 0;
+  padding-bottom: 120px;
+  position: relative;
+  font-size: 0; }
+  section.categories .decor-top {
+    position: absolute;
+    top: 35px;
+    left: 25px;
+    z-index: 1;
+    width: 13%; }
+    section.categories .decor-top img {
+      width: 100%; }
+  section.categories .decor-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    width: 30%; }
+    section.categories .decor-bottom img {
+      width: 100%; }
+  section.categories .title {
+    font-family: 'opensans-bold';
+    font-size: 52px;
+    color: #21212b; }
+  section.categories .content {
+    margin-top: 35px;
+    font-family: 'opensans-regular';
+    font-size: 20px;
+    color: #000000; }
+    section.categories .content p {
+      margin-top: 25px; }
+    section.categories .content.mobile {
+      display: none; }
+    @media only screen and (max-width: 650px) {
+      section.categories .content.desktop {
+        display: none; }
+      section.categories .content.mobile {
+        display: block; } }
+  section.categories .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0;
+    align-items: stretch;
+    margin-top: 50px; }
+    section.categories .boxes .box {
+      width: 29.33%;
+      margin: 2%;
+      border: 1px solid transparent;
+      position: relative; }
+      section.categories .boxes .box .wrapper {
+        border-radius: 10px;
+        background: #fff;
+        overflow: hidden;
+        padding: 35px;
+        border: 1px solid #dce0ed;
+        height: 100%; }
+        section.categories .boxes .box .wrapper .image {
+          text-align: center; }
+          section.categories .boxes .box .wrapper .image img {
+            max-width: 100%;
+            max-height: 100%; }
+        section.categories .boxes .box .wrapper .content {
+          position: relative; }
+          section.categories .boxes .box .wrapper .content .title {
+            font-family: 'opensans-bold';
+            font-size: 20px;
+            color: #21212b;
+            text-align: center; }
+          section.categories .boxes .box .wrapper .content .buttons {
+            text-align: center;
+            margin-top: 15px; }
+            section.categories .boxes .box .wrapper .content .buttons .button, section.categories .boxes .box .wrapper .content .buttons .added_to_cart {
+              display: inline-block;
+              background: #009cdf;
+              font-family: 'opensans-regular';
+              font-size: 20px;
+              color: #fff;
+              padding: 10px 30px;
+              border-radius: 100px;
+              margin: 0 2%;
+              cursor: pointer;
+              width: 90%;
+              transition: 0.5s; }
+              section.categories .boxes .box .wrapper .content .buttons .button:hover, section.categories .boxes .box .wrapper .content .buttons .added_to_cart:hover {
+                color: rgba(255, 255, 255, 0.85); }
+              section.categories .boxes .box .wrapper .content .buttons .button.details, section.categories .boxes .box .wrapper .content .buttons .added_to_cart.details {
+                background: #653c99; }
+              section.categories .boxes .box .wrapper .content .buttons .button.added, section.categories .boxes .box .wrapper .content .buttons .added_to_cart.added {
+                background: #597e8e; }
+  @media only screen and (max-width: 950px) {
+    section.categories {
+      padding-top: 35px; }
+      section.categories .content {
+        margin-top: 25px;
+        font-size: 18px; }
+      section.categories .title {
+        font-size: 40px; }
+      section.categories .boxes {
+        margin-top: 30px; }
+        section.categories .boxes .box {
+          width: 100%;
+          margin: 0;
+          margin-top: 25px; } }
+  @media only screen and (max-width: 500px) {
+    section.categories .decor-bottom {
+      width: 50%; }
+    section.categories .boxes .box .wrapper {
+      padding: 15px; }
+      section.categories .boxes .box .wrapper .content .buttons .button {
+        padding: 10px 25px; } }
+
+/* --------------------- /Section categories ---------------------- */
 @font-face {
   font-family: star;
   src: url(../../../../../plugins/woocommerce/assets/fonts/star.eot);

@@ -218,6 +218,7 @@ section.blog {
 section.products-menu {
 	background: #653c99;
 	padding: 15px 0;
+	overflow: visible;
 
 	ul {
 		display: flex;
@@ -244,6 +245,106 @@ section.products-menu {
 			}
 		}
 	}
+
+
+	.shop-menu {
+        ul.main-menu {
+            display: flex;
+            justify-content: center;
+            height: 100%;
+			@media only screen and (min-width : $mob-w) {
+				.menu-item-has-children, .has-extra-menu { 
+					padding-left: 20px;
+					background: url("../images/icons/rd.png") no-repeat left 10px center;
+				}
+			}
+            .menu-item-has-children {
+                position: relative;
+            }
+            > li {
+                position: relative;
+                padding: 0 8px;
+                height: 100%;
+				margin: 0;
+                > a {
+                    position: relative;
+                    transition: 0.5s;
+                    @include f-r;
+                    font-size: 20px;
+                    color: #fff;
+                    
+                    padding: 5px 10px;
+                    white-space: nowrap;
+                    display: inline-block;
+                    height: 100%;
+                    line-height: 43px;
+                    &:hover {
+                        color: #ffcf01 !important;
+                    }
+                }
+                &.current_page_item, &.current-menu-item {
+                    > a {
+                        @include f-b;
+						color: #ffcf01;
+                    }
+                }
+                .sub-menu {
+                    padding: 20px;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 100%;
+                    background-color: #fff;
+                    border-top: 4px solid #ffcf01;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: 0.15s;
+                    box-shadow: 0px 2px 15px 0px rgba(50, 50, 50, 0.2);
+                    z-index: 99;
+					@media only screen and (max-width : $mob-w) {
+						display: none !important;
+					}
+                    li {
+                        margin: 0;
+                        &.menu-item-has-children {
+                            background: url("../images/icons/rl.png") no-repeat left center;
+                        }
+                        a {
+                            @include f-r;
+                            font-size: 17px;
+                            color: #262626;
+                            padding: 8px;
+                            white-space: nowrap;
+                            display: inline-block;
+                            transition: 0.5s;
+                            &:hover {
+                                color: #ffcf01;
+                            }
+                        }
+                        .sub-menu {
+                            left: auto;
+                            right: 100%;
+                            top: 0;
+                            transform: translateX(-20px);
+                        }
+                        &:hover {
+                            >.sub-menu {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+
+                &:hover {
+                    >.sub-menu {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
 }
 /* --------------------- /Section products-menu ---------------------- */
 
@@ -2332,3 +2433,184 @@ section.blog-new {
 	}
 }
 /* --------------------- /Section blog ---------------------- */
+
+
+
+/* ---------------------- Section categories ---------------------- */
+section.categories {
+	background: #fff;
+	padding: 95px 0;
+	padding-bottom: 120px;
+	position: relative;
+	font-size: 0;
+	.decor-top {
+		position: absolute;
+		top: 35px;
+		left: 25px;
+		z-index: 1;
+
+		width: 13%;
+		img {
+			width: 100%;
+		}
+	}
+	.decor-bottom {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		z-index: 1;
+		width: 30%;
+		img {
+			width: 100%;
+		}
+	}
+	
+	.title {
+		@include f-b;
+		font-size: 52px;
+		color: #21212b;
+	}
+	
+	.content {
+		margin-top: 35px;
+		@include f-r;
+		font-size: 20px;
+		color: #000000;
+		p {
+			
+			margin-top: 25px;
+		}
+
+		&.mobile {
+			display: none;
+		}
+
+		@media only screen and (max-width : 650px) {
+			&.desktop {
+				display: none;
+			}
+			&.mobile {
+				display: block;
+			}
+		}
+	}
+
+	.boxes {
+		display: flex;
+		flex-wrap: wrap;
+		font-size: 0;
+		align-items: stretch;
+		margin-top: 50px;
+		.box {
+			width: 29.33%;
+			margin: 2%;
+			border: 1px solid transparent;
+			position: relative;
+			
+			.wrapper {
+				border-radius: 10px;
+				background: #fff;
+				overflow: hidden;
+				padding: 35px;
+				border: 1px solid #dce0ed;
+				height: 100%;
+				.image {
+					
+					text-align: center;
+					img {
+						max-width: 100%;
+						max-height: 100%;
+					}
+				}
+
+				.content {
+				
+					position: relative;
+					.title {
+						@include f-b;
+						font-size: 20px;
+						color: #21212b;
+						text-align: center;
+					}
+
+					
+
+					.buttons {
+						text-align: center;
+						margin-top: 15px;
+
+						.button, .added_to_cart {
+							display: inline-block;
+							background: #009cdf;
+							@include f-r;
+							font-size: 20px;
+							color: #fff;
+							padding: 10px 30px;
+							border-radius: 100px;
+							margin: 0 2%;
+							cursor: pointer;
+							width: 90%;
+							transition: 0.5s;
+							&:hover {
+								color: rgba(255,255,255,0.85);
+							}
+							&.details {
+								background: #653c99;
+							}
+
+							&.added {
+								background: #597e8e;
+							}
+						}
+
+					}
+				
+				}
+			}
+		}
+	}
+
+	
+	
+
+	@media only screen and (max-width : 950px) {
+		.content {
+			margin-top: 25px;			
+			font-size: 18px;
+		}
+		padding-top: 35px;
+		.title {
+			font-size: 40px;
+		}
+		.boxes {
+			margin-top: 30px;
+			.box {
+				width: 100%;
+				margin: 0;
+				margin-top: 25px;
+			}
+		}
+	}
+
+
+	@media only screen and (max-width : 500px) {
+
+		.decor-bottom {
+			width: 50%;
+		}
+
+		.boxes {
+			
+			.box {
+				.wrapper {
+					padding: 15px;
+
+					.content .buttons .button {
+						padding: 10px 25px;
+					}
+				}
+			}
+		}
+	}
+}
+/* --------------------- /Section categories ---------------------- */
